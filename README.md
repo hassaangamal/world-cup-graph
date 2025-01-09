@@ -63,25 +63,62 @@ ORDER BY TotalGoals DESC
 | 1970         | Jairzinho                           | 7          |
 | 1974         | Grzegorz Lato                       | 7          |
 | 1938         | Leonidas                            | 7          |
-### 3. Top scorers per world cup?
+### 3. Which countries have never won a match at a World Cup until 2018 version?
 #### Query
 ```cypher
-MATCH (wc:WorldCup)-[:CONTAINS_MATCH]->(m:Match)<-[:IN_MATCH]-(a:Appearance)-[:SCORED_GOAL]->(g:Goal)
-
-MATCH (a)<-[:STARTED|:SUBSTITUTE]-(p:Player)
-
-RETURN 
-
-  wc.year AS WorldCupYear, 
-
-  p.name AS PlayerName, 
-
-  COUNT(g) AS TotalGoals
-
-ORDER BY TotalGoals DESC
+MATCH (c:Country)
+WHERE NOT EXISTS {
+  MATCH (c)-[:WON]->(:Match)
+}
+RETURN DISTINCT c.name AS Country
+ORDER BY Country;
 ```
 #### Output
+Here's the data converted to a markdown table:
 
+| Country                 |
+
+|------------------------|
+
+| Angola                 |
+
+| Bolivia                |
+
+| Canada                 |
+
+| China PR               |
+
+| Dutch East Indies      |
+
+| Egypt                  |
+
+| El Salvador            |
+
+| Haiti                  |
+
+| Honduras               |
+
+| Iceland                |
+
+| Iraq                   |
+
+| Israel                 |
+
+| Kuwait                 |
+
+| New Zealand            |
+
+| Panama                 |
+
+| Serbia and Montenegro  |
+
+| Togo                   |
+
+| Trinidad and Tobago    |
+
+| United Arab Emirates   |
+
+| Zaire                  |
 ### 4. Which stadium has hosted the most World Cup matches?
 #### Query
 ```cypher
