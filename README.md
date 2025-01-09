@@ -74,51 +74,29 @@ RETURN DISTINCT c.name AS Country
 ORDER BY Country;
 ```
 #### Output
-Here's the data converted to a markdown table:
-
 | Country                 |
-
-|------------------------|
-
+|-------------------------|
 | Angola                 |
-
 | Bolivia                |
-
 | Canada                 |
-
 | China PR               |
-
 | Dutch East Indies      |
-
 | Egypt                  |
-
 | El Salvador            |
-
 | Haiti                  |
-
 | Honduras               |
-
 | Iceland                |
-
 | Iraq                   |
-
 | Israel                 |
-
 | Kuwait                 |
-
 | New Zealand            |
-
 | Panama                 |
-
 | Serbia and Montenegro  |
-
 | Togo                   |
-
 | Trinidad and Tobago    |
-
 | United Arab Emirates   |
-
 | Zaire                  |
+
 ### 4. Which stadium has hosted the most World Cup matches?
 #### Query
 ```cypher
